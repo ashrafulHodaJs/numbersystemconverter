@@ -8,17 +8,17 @@ function convertNumber() {
   }
 
   if (!isValidNumberForBase(numberInput, baseInput)) {
-    document.getElementById('result').textContent = 'Invalid number for the specified base.';
+    document.getElementById('result').textContent = 'Invalid number for the entered base.';
     return;
   }
 
-  const convertedNumber = parseInt(numberInput, baseInput).toString();
+  const convertedNumber = parseInt(numberInput, baseInput).toString(); // i used inbuilt js function to convert number of any base to decimal
   
   document.getElementById('result').textContent = `Converted number: ${convertedNumber}`;
 }
 
 function isValidNumberForBase(number, base) {
-  const validCharacters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'.slice(0, base);
+  const validCharacters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'.slice(0, base); // this will slice the given string to an array depending on the bases.
   const pattern = new RegExp(`^[${validCharacters}]+$`);
   return pattern.test(number.toUpperCase());
 }
